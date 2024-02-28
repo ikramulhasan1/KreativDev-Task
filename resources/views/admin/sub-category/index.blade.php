@@ -8,8 +8,7 @@
                     <div class="breadcrumb-main">
                         <h4 class="text-capitalize breadcrumb-title">Course Sub Category</h4>
                         <div class="flex-wrap breadcrumb-action justify-content-center">
-                            <a href="javascript:editModal('{{ route('course_sub_category.create', ['language' => app()->getLocale()]) }}','category-form-modal','form-modal','Add Sub Category')"
-                                class="btn btn-sm btn-primary me-0 radius-md">
+                            <a href="{{ route('sub-categories.create') }}" class="btn btn-sm btn-primary me-0 radius-md">
                                 <i class="la la-plus"></i> Add Sub Cateory</a>
                         </div>
                     </div>

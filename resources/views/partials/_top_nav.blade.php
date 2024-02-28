@@ -2,7 +2,7 @@
     <div class="navbar-left">
         <div class="logo-area">
             <a class="navbar-brand" href="">
-                <img class="dark" src="{{ asset('assets/img/logo-dark.svg') }}" alt="svg">
+                <img class="dark" src="{{ asset('assets/img/logo-white.svg') }}" alt="svg">
                 <img class="light" src="{{ asset('assets/img/logo-white.svg') }}" alt="img">
             </a>
             <a href="#" class="sidebar-toggle">

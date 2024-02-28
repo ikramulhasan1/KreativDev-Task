@@ -5,6 +5,7 @@ use App\Http\Controllers\PaymentGateways\MollieController;
 use App\Http\Controllers\PaymentGateways\RazorpayController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Http\Controllers\PaymentController;
@@ -15,25 +16,15 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PaymentGateways\PaypalController;
 use App\Http\Controllers\PaymentGateways\SSLCommerzController;
 use App\Http\Controllers\StripePaymentController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\SubCategoryController;
 
 // Route::get('/', function () {
 //     return view('landing');
 // })->name('landing');
 
-Route::get('/', function () {
-    return view('admin.pages.course.course_category');
-})->name('category-page');
+// Route::get('/', function () {
+//     return view('admin.pages.course.course_category');
+// })->name('category-page');
 
 Route::get('/add-category', function () {
     $view = view('admin.components.category-form-modal')->render();
@@ -52,3 +43,9 @@ Route::get('/add-sub-category', function () {
         'view' => $view
     ]);
 })->name('course_sub_category.create');
+
+
+Route::resources([
+    '/' => CategoryController::class,
+    'sub-categories' => SubCategoryController::class,
+]);
