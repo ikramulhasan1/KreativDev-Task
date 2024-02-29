@@ -9,7 +9,7 @@
                         <h4 class="text-capitalize breadcrumb-title">Category Create</h4>
 
                         <div class="flex-wrap breadcrumb-action justify-content-center">
-                            <a href="{{ route('index') }}" class="btn btn-sm btn-primary me-0 radius-md">
+                            <a href="{{ route('categories.index') }}" class="btn btn-sm btn-primary me-0 radius-md">
                                 <i class="la la-plus"></i> Back</a>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                     <!-- Default box -->
                     <div class="container-fluid">
 
-                        <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
@@ -35,6 +35,9 @@
                                                 <label class="mb-1" for="name">Name</label>
                                                 <input type="text" name="name" id="name" class="form-control"
                                                     placeholder="Enter your name">
+                                                @error('name')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-12">

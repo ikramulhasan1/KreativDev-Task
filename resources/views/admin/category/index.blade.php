@@ -130,7 +130,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="orderDatatable-status d-inline-block">
-                                                            10
+                                                            3
                                                         </div>
                                                     </td>
                                                     <td role="button">

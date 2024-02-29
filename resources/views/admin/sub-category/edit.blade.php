@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="pb-5 pt-3 d-flex">
-                                <button class="btn btn-primary m-1 btn-sm">Create</button>
+                                <button class="btn btn-primary m-1 btn-sm">Update</button>
                                 <a href="subcategory.html" class="btn btn-outline-dark ml-3 btn-sm m-1">Cancel</a>
                             </div>
                         </form>

@@ -51,6 +51,9 @@
                                                     <label class="mb-1" for="subcategory">Sub Category</label>
                                                     <input type="text" name="name" id="subcategory"
                                                         class="form-control" placeholder="Sub Category">
+                                                    @error('name')
+                                                        <div class="text-danger">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

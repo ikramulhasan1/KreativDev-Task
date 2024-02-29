@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\SubCategoryRequest;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class SubCategoryController extends Controller
         return view('admin.sub-category.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(SubCategoryRequest $request)
     {
         $category_name = Category::find($request->category_id)->name;
         $subCategory = new SubCategory();

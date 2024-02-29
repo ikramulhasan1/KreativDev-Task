@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="pb-5 pt-3 d-flex">
-                                <button class="btn btn-primary m-2 btn-sm">Create</button>
+                                <button class="btn btn-primary m-2 btn-sm">Update</button>
                                 <a href="brands.html" class="btn btn-outline-dark ml-3 m-2 btn-sm">Cancel</a>
                             </div>
                         </form>
