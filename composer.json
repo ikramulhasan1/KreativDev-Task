@@ -13,6 +13,7 @@
     "brian2694/laravel-toastr": "^5.58",
     "geo-sot/laravel-env-editor": "^2.1",
     "guzzlehttp/guzzle": "^7.2",
+    "intervention/image": "^2",
     "kingflamez/laravelrave": "^4.2",
     "laravel/framework": "^10.10",
     "laravel/sanctum": "^3.3",

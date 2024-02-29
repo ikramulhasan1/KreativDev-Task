@@ -95,6 +95,9 @@
                                                 <span class="userDatatable-title">Category Name</span>
                                             </th>
                                             <th>
+                                                <span class="userDatatable-title">Image</span>
+                                            </th>
+                                            <th>
                                                 <span class="userDatatable-title">Total Sub Category</span>
                                             </th>
 
@@ -129,6 +132,17 @@
                                                         </div>
                                                     </td>
                                                     <td>
+                                                        <div class="orderDatatable-title">
+                                                            @if (!empty($category->image))
+                                                                <img src="{{ asset('storage/category-images/' . $category->image) }}"
+                                                                    class="img-fluid " width="50">
+                                                            @else
+                                                                {{-- <img src="{!! asset('assets/img/defult.jpg') !!}" class="img-fluid"
+                                                                    width="80"> --}}
+                                                            @endif
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                         <div class="orderDatatable-status d-inline-block">
                                                             3
                                                         </div>
@@ -155,7 +169,8 @@
                                                                     <input type="checkbox" class="form-check-input"
                                                                         {{ $category->status == '1' ? 'checked' : '' }}
                                                                         id="switch-s1">
-                                                                    <label class="form-check-label" for="switch-s1"></label>
+                                                                    <label class="form-check-label"
+                                                                        for="switch-s1"></label>
                                                                 </div>
                                                             </div>
                                                         </div>
