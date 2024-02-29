@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
@@ -9,17 +10,26 @@ class SubCategoryController extends Controller
 {
     public function index()
     {
-        return view('admin.sub-category.index');
+        $subcategories = SubCategory::all();
+
+        return view('admin.sub-category.index', compact('subcategories'));
     }
 
     public function create()
     {
-        return view('admin.sub-category.create');
+        $categories = Category::all();
+        return view('admin.sub-category.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        //
+        $category_name = Category::find($request->category_id)->name;
+        $subCategory = new SubCategory();
+        $subCategory->fill($request->all());
+        $subCategory->category = $category_name;
+
+        $subCategory->save();
+        return redirect()->route('sub-categories.index');
     }
 
     public function show(SubCategory $subCategory)
@@ -27,27 +37,21 @@ class SubCategoryController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(SubCategory $subCategory)
     {
-        //
+        $categories = Category::all();
+        return view('admin.sub-category.edit', compact('subCategory', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, SubCategory $subCategory)
     {
-        //
+        $subCategory->update($request->all());
+        return redirect()->route('sub-categories.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(SubCategory $subCategory)
     {
-        //
+        $subCategory->delete($subCategory);
+        return back();
     }
 }

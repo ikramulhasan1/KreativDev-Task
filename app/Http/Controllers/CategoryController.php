@@ -9,6 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
+
         $categories = Category::all();
         return view('admin.category.index', compact('categories'));
     }
@@ -31,7 +32,8 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        //
+        // dd($category);
+        return view('admin.category.edit', compact('category'));
     }
 
     public function update(Request $request, Category $category)
@@ -41,6 +43,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        //
+        $category->delete($category);
+        return back();
     }
 }

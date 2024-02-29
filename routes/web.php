@@ -18,34 +18,12 @@ use App\Http\Controllers\PaymentGateways\SSLCommerzController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\SubCategoryController;
 
-// Route::get('/', function () {
-//     return view('landing');
-// })->name('landing');
 
-// Route::get('/', function () {
-//     return view('admin.pages.course.course_category');
-// })->name('category-page');
-
-Route::get('/add-category', function () {
-    $view = view('admin.components.category-form-modal')->render();
-    return response()->json([
-        'view' => $view
-    ]);
-})->name('course_category.create');
-
-Route::get('/sub-category', function () {
-    return view('admin.pages.course.course_sub_category');
-})->name('subcategory-page');
-
-Route::get('/add-sub-category', function () {
-    $view = view('admin.components.sub-category-form-modal')->render();
-    return response()->json([
-        'view' => $view
-    ]);
-})->name('course_sub_category.create');
-
+Route::get('/', function () {
+    return redirect()->route('categories.index');
+});
 
 Route::resources([
-    '/' => CategoryController::class,
+    'categories' => CategoryController::class,
     'sub-categories' => SubCategoryController::class,
 ]);

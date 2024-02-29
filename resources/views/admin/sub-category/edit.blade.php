@@ -23,7 +23,9 @@
                 <section class="content">
                     <!-- Default box -->
                     <div class="container-fluid">
-                        <form action="{{ route('sub-categories.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('sub-categories.update', $subCategory->id) }}" method="post"
+                            enctype="multipart/form-data">
+                            @method('PATCH')
                             @csrf
                             <div class="card">
                                 <div class="card-body">
@@ -32,6 +34,7 @@
                                             <div class="mb-3">
                                                 <label class="mb-1" for="category">Select Category</label>
                                                 <select name="category_id" id="category" class="form-control">
+                                                    {{-- @dd($subCategory) --}}
                                                     @if ($categories)
                                                         @forelse ($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->name }}
@@ -49,8 +52,8 @@
                                             <div class="col-md-6">
                                                 <div class="me-1 mb-3">
                                                     <label class="mb-1" for="subcategory">Sub Category</label>
-                                                    <input type="text" name="name" id="subcategory"
-                                                        class="form-control" placeholder="Sub Category">
+                                                    <input type="text" name="name" value="{{ $subCategory->name }}"
+                                                        id="subcategory" class="form-control" placeholder="Sub Category">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -67,8 +70,10 @@
                                                 <label class="mb-1" for="status">Status</label>
                                                 <div class="mb-2">
                                                     <select name="status" id="status" class="form-control">
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Block</option>
+                                                        <option {{ $subCategory->status == '1' ? 'selected' : '' }}
+                                                            value="1">Active</option>
+                                                        <option {{ $subCategory->status == '0' ? 'selected' : '' }}
+                                                            value="0">Block</option>
                                                     </select>
                                                 </div>
                                             </div>

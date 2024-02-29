@@ -9,7 +9,7 @@
                         <h4 class="text-capitalize breadcrumb-title">Category</h4>
 
                         <div class="flex-wrap breadcrumb-action justify-content-center">
-                            <a href="{{ route('create') }}" class="btn btn-sm btn-primary me-0 radius-md">
+                            <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary me-0 radius-md">
                                 <i class="la la-plus"></i> Add Project Category</a>
                         </div>
                     </div>
@@ -97,9 +97,7 @@
                                             <th>
                                                 <span class="userDatatable-title">Total Sub Category</span>
                                             </th>
-                                            <th>
-                                                <span class="userDatatable-title">Total Course</span>
-                                            </th>
+
                                             <th>
                                                 <span class="userDatatable-title">Is Featured</span>
                                             </th>
@@ -135,22 +133,15 @@
                                                             10
                                                         </div>
                                                     </td>
-
-
-
-                                                    <td>
-                                                        <div class="orderDatatable-title">
-                                                            5
-                                                        </div>
-                                                    </td>
-
                                                     <td role="button">
                                                         <div class="orderDatatable-status d-inline-block">
                                                             <div class="dm-switch-wrap">
                                                                 <div
                                                                     class="form-check form-switch form-switch-primary form-switch-sm">
+
                                                                     <input type="checkbox" class="form-check-input"
-                                                                        id="switch-s1" checked>
+                                                                        id="switch-s1"
+                                                                        {{ $category->is_featured == 'Yes' ? 'checked' : '' }}>
                                                                     <label class="form-check-label" for="switch-s1"></label>
                                                                 </div>
                                                             </div>
@@ -162,9 +153,9 @@
                                                                 <div
                                                                     class="form-check form-switch form-switch-primary form-switch-sm">
                                                                     <input type="checkbox" class="form-check-input"
-                                                                        id="switch-s1" checked>
-                                                                    <label class="form-check-label"
-                                                                        for="switch-s1"></label>
+                                                                        {{ $category->status == '1' ? 'checked' : '' }}
+                                                                        id="switch-s1">
+                                                                    <label class="form-check-label" for="switch-s1"></label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,7 +165,7 @@
                                                         <ul class="mb-0 orderDatatable_actions d-flex float-end">
 
                                                             <li>
-                                                                <a href="javascript:editModal('{{ route('course_category.create', ['language' => app()->getLocale()]) }}','category-form-modal','form-modal')"
+                                                                <a href="{{ route('categories.edit', $category->id) }}"
                                                                     class="edit">
                                                                     <svg width="17" height="17"
                                                                         viewBox="0 0 17 17" fill="none"
@@ -200,15 +191,22 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:deleteData('')" class="remove"
-                                                                    title="Remove Category">
-                                                                    <svg width="17" height="17"
-                                                                        viewBox="0 0 17 17" fill="none"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path
-                                                                            d="M2.0654 4.98047L2.94757 15.6299C3.01079 16.3979 3.66496 17 4.43587 17H12.5642C13.3351 17 13.9892 16.3979 14.0525 15.6299L14.9346 4.98047H2.0654ZM6.0093 15.0078C5.74859 15.0078 5.52925 14.805 5.51271 14.5409L5.01467 6.50572C4.99763 6.23093 5.20628 5.99456 5.48061 5.97753C5.76513 5.95757 5.9913 6.16868 6.0088 6.44346L6.50685 14.4786C6.52448 14.7632 6.29933 15.0078 6.0093 15.0078ZM8.99805 14.5098C8.99805 14.7851 8.77529 15.0078 8.5 15.0078C8.22471 15.0078 8.00195 14.7851 8.00195 14.5098V6.47461C8.00195 6.19932 8.22471 5.97656 8.5 5.97656C8.77529 5.97656 8.99805 6.19932 8.99805 6.47461V14.5098ZM11.9853 6.50575L11.4873 14.5409C11.4709 14.8024 11.253 15.0202 10.9591 15.0069C10.6848 14.9898 10.4761 14.7534 10.4931 14.4787L10.9912 6.4435C11.0082 6.16871 11.249 5.96879 11.5194 5.97756C11.7937 5.99459 12.0024 6.23097 11.9853 6.50575ZM14.9746 1.99219H11.9863V1.49414C11.9863 0.670238 11.3161 0 10.4922 0H6.50781C5.68391 0 5.01367 0.670238 5.01367 1.49414V1.99219H2.02539C1.47525 1.99219 1.0293 2.43814 1.0293 2.98828C1.0293 3.53836 1.47525 3.98438 2.02539 3.98438H14.9746C15.5248 3.98438 15.9707 3.53836 15.9707 2.98828C15.9707 2.43814 15.5248 1.99219 14.9746 1.99219ZM10.9902 1.99219H6.00977V1.49414C6.00977 1.21935 6.23302 0.996094 6.50781 0.996094H10.4922C10.767 0.996094 10.9902 1.21935 10.9902 1.49414V1.99219Z"
-                                                                            fill="#D62020" />
-                                                                    </svg>
+                                                                <a href="" class="remove">
+                                                                    <form
+                                                                        action="{{ route('categories.destroy', $category->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button>
+                                                                            <svg width="17" height="17"
+                                                                                viewBox="0 0 17 17" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M2.0654 4.98047L2.94757 15.6299C3.01079 16.3979 3.66496 17 4.43587 17H12.5642C13.3351 17 13.9892 16.3979 14.0525 15.6299L14.9346 4.98047H2.0654ZM6.0093 15.0078C5.74859 15.0078 5.52925 14.805 5.51271 14.5409L5.01467 6.50572C4.99763 6.23093 5.20628 5.99456 5.48061 5.97753C5.76513 5.95757 5.9913 6.16868 6.0088 6.44346L6.50685 14.4786C6.52448 14.7632 6.29933 15.0078 6.0093 15.0078ZM8.99805 14.5098C8.99805 14.7851 8.77529 15.0078 8.5 15.0078C8.22471 15.0078 8.00195 14.7851 8.00195 14.5098V6.47461C8.00195 6.19932 8.22471 5.97656 8.5 5.97656C8.77529 5.97656 8.99805 6.19932 8.99805 6.47461V14.5098ZM11.9853 6.50575L11.4873 14.5409C11.4709 14.8024 11.253 15.0202 10.9591 15.0069C10.6848 14.9898 10.4761 14.7534 10.4931 14.4787L10.9912 6.4435C11.0082 6.16871 11.249 5.96879 11.5194 5.97756C11.7937 5.99459 12.0024 6.23097 11.9853 6.50575ZM14.9746 1.99219H11.9863V1.49414C11.9863 0.670238 11.3161 0 10.4922 0H6.50781C5.68391 0 5.01367 0.670238 5.01367 1.49414V1.99219H2.02539C1.47525 1.99219 1.0293 2.43814 1.0293 2.98828C1.0293 3.53836 1.47525 3.98438 2.02539 3.98438H14.9746C15.5248 3.98438 15.9707 3.53836 15.9707 2.98828C15.9707 2.43814 15.5248 1.99219 14.9746 1.99219ZM10.9902 1.99219H6.00977V1.49414C6.00977 1.21935 6.23302 0.996094 6.50781 0.996094H10.4922C10.767 0.996094 10.9902 1.21935 10.9902 1.49414V1.99219Z"
+                                                                                    fill="#D62020" />
+                                                                            </svg>
+                                                                        </button>
+                                                                    </form>
                                                                 </a>
 
                                                             </li>

@@ -11,7 +11,7 @@
             </a>
             <ul style="top: 252.938px; left: 213px;">
                 <li>
-                    <a href="{{ route('index') }}" class="active">
+                    <a href="{{ route('categories.index') }}" class="active">
                         Category List
                     </a>
                 </li>
