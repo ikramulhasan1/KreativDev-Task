@@ -9,7 +9,7 @@ Before getting started, make sure you have the following installed on your machi
 - PHP (>= 7.3)
 - Composer
 - Laravel
-- MySQL or any other database of your choice
+- MySQL
 
 ## Installation
 
