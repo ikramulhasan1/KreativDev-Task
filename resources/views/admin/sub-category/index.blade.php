@@ -107,7 +107,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @dd($subcategories) --}}
+
                                         @if ($subcategories)
                                             @forelse ($subcategories as $key => $sub_category)
                                                 <tr>
