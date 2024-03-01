@@ -38,17 +38,17 @@ Before getting started, make sure you have the following installed on your machi
     php artisan key:generate
     ```
 
-5. **Create database name
+5. **Create a database name**
 
    ``getlaravel``
   
-8. Run migrations:**
+6. Run migrations:**
 
     ```bash
     php artisan migrate
     ```
 
-9. **Running the Server:**
+7. **Running the Server:**
 
     ```bash
     php artisan serve
