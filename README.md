@@ -38,7 +38,7 @@ Before getting started, make sure you have the following installed on your machi
     php artisan key:generate
     ```
 
-5. **Run migrations:**
+5. **Create database and Run migrations:**
 
     ```bash
     php artisan migrate
