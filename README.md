@@ -26,10 +26,10 @@ Before getting started, make sure you have the following installed on your machi
    composer install
    ```
    
-3. **Set up your environment file:**
+3. **Set up your environment file(Optional - If .env.example exists):**
 
    ```bash
-   cp .env.example .env
+   mv .env.example .env
    ```
 
 4. **Generate application key:**
