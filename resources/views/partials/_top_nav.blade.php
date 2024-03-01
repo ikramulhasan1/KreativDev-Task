@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light">
     <div class="navbar-left">
         <div class="logo-area">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="#">
                 <img class="dark" src="{{ asset('assets/img/logo-white.svg') }}" alt="svg">
                 <img class="light" src="{{ asset('assets/img/logo-white.svg') }}" alt="img">
             </a>
@@ -27,27 +27,20 @@
             </li>
             <li class="nav-author">
                 <div class="dropdown-custom">
-                    <a href="javascript:;" class="nav-item-toggle"><img src=""
-                            onerror="this.src='{{ asset('assets/img/author-nav.jpg') }}'" alt=""
-                            class="rounded-circle">
-                        @if (Auth::check())
-                            <span class="nav-item__title">{{ Auth::user()->name }}<i
-                                    class="las la-angle-down nav-item__arrow"></i></span>
-                        @endif
+                    <a href="#" class="nav-item-toggle"><img src="{{ asset('assets/img/author-nav.jpg') }}"
+                            alt="" class="rounded-circle">
                     </a>
                     <div class="dropdown-wrapper">
                         <div class="d-flex align-items-center gap-3" style="padding: 9px 25px;">
                             <div class="author-img ">
-                                <img src="" alt=""
-                                    onerror="this.src='{{ asset('assets/img/author-nav.jpg') }}'"
-                                    class="rounded-circle ">
+                                <img src="{{ asset('assets/img/author-nav.jpg') }}" class="rounded-circle ">
                             </div>
                             <div>
-                                @if (Auth::check())
+                                {{-- @if (Auth::check())
                                     <h6 class="text-capitalize">{{ Auth::user()->name }}</h6>
-                                @else
-                                    <span>User Name</span>
-                                @endif
+                                @else --}}
+                                <span>User Name</span>
+                                {{-- @endif --}}
                             </div>
                         </div>
                         <div class="nav-author__options">
