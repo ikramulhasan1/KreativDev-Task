@@ -143,6 +143,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
+
                                                         <div class="orderDatatable-status d-inline-block">
 
                                                         </div>
