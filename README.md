@@ -26,7 +26,7 @@ Before getting started, make sure you have the following installed on your machi
    composer install
    ```
    
-3. **Set up your environment file (Optional - If .env.example exists):**
+3. **Set up your env file (Optional - If .env.example exists):**
 
    ```bash
    mv .env.example .env
