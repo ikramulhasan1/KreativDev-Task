@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->enum('is_featured', ['Yes', 'No'])->default('No');
             $table->string('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

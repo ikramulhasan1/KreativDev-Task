@@ -137,14 +137,14 @@
                                                                 <img src="{{ asset('storage/category-images/' . $category->image) }}"
                                                                     class="img-fluid " width="50">
                                                             @else
-                                                                {{-- <img src="{!! asset('assets/img/defult.jpg') !!}" class="img-fluid"
-                                                                    width="80"> --}}
+                                                                <img src="{!! asset('assets/img/No-Image.jpg') !!}" class="img-fluid"
+                                                                    width="50">
                                                             @endif
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="orderDatatable-status d-inline-block">
-                                                            3
+
                                                         </div>
                                                     </td>
                                                     <td role="button">
@@ -212,7 +212,7 @@
                                                                         method="post">
                                                                         @csrf
                                                                         @method('DELETE')
-                                                                        <button>
+                                                                        <button class="border-0 bg-transparent ">
                                                                             <svg width="17" height="17"
                                                                                 viewBox="0 0 17 17" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">

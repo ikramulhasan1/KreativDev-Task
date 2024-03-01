@@ -27,13 +27,13 @@
             </li>
             <li class="nav-author">
                 <div class="dropdown-custom">
-                    <a href="#" class="nav-item-toggle"><img src="{{ asset('assets/img/author-nav.jpg') }}"
+                    <a href="#" class="nav-item-toggle"><img src="{{ asset('assets/img/profile-612x612.jpg') }}"
                             alt="" class="rounded-circle">
                     </a>
                     <div class="dropdown-wrapper">
                         <div class="d-flex align-items-center gap-3" style="padding: 9px 25px;">
                             <div class="author-img ">
-                                <img src="{{ asset('assets/img/author-nav.jpg') }}" class="rounded-circle ">
+                                <img src="{{ asset('assets/img/profile-612x612.jpg') }}" class="rounded-circle ">
                             </div>
                             <div>
                                 {{-- @if (Auth::check())
